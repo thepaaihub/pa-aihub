@@ -632,6 +632,7 @@
             max-width: 500px;
             width: 90%;
             text-align: center;
+            position: relative;
         }
 
         .modal h3 {
@@ -707,6 +708,48 @@
             opacity: 0.7;
         }
 
+        /* Social Proof Section */
+        .social-proof {
+            background: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        /* Affiliate Disclosure */
+        .affiliate-disclosure {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .header-container {
@@ -715,7 +758,13 @@
             }
 
             nav ul {
-                gap: 15px;
+                flex-direction: column;
+                gap: 10px;
+                display: none;
+            }
+
+            nav.active ul {
+                display: flex;
             }
 
             .hero h2 {
@@ -742,24 +791,6 @@
 
             .mobile-menu-btn {
                 display: block;
-                position: absolute;
-                top: 20px;
-                right: 20px;
-            }
-
-            nav {
-                display: none;
-                width: 100%;
-                margin-top: 15px;
-            }
-
-            nav.active {
-                display: block;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
             }
 
             .chat-box {
@@ -809,25 +840,4 @@
                     <li><a href="#tools">AI Tools</a></li>
                     <li><a href="#resources">Resources</a></li>
                     <li><a href="#blog">Blog</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <h2>Smart Tools for Smart Earners</h2>
-            <p>PA AI Hub helps creators, entrepreneurs, and learners discover powerful AI tools and digital systems to earn smarter, not harder.</p>
-            <div class="cta-buttons">
-                <a href="#tools" class="btn btn-primary">Explore Tools</a>
-                <button class="btn btn-secondary" id="joinHubBtn">Join Our AI Business Hub</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Featured Sections -->
-    <section class="section">
-        <div class="container">
-            <div class="section
+                    <li><a h
