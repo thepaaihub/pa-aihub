@@ -77,6 +77,15 @@
             color: #ff6b6b;
         }
 
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
         .hero {
             background: linear-gradient(135deg, #4a6cf7, #6a11cb);
             color: white;
@@ -276,6 +285,18 @@
             margin-bottom: 15px;
         }
 
+        .resources-section {
+            background: white;
+        }
+
+        .blog-section {
+            background: #f0f4ff;
+        }
+
+        .contact-section {
+            background: white;
+        }
+
         .email-section {
             background: linear-gradient(135deg, #4a6cf7, #6a11cb);
             color: white;
@@ -403,6 +424,79 @@
             background: #20b858;
         }
 
+        .resources-grid, .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .resource-card, .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .resource-card:hover, .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .resource-img, .blog-img {
+            height: 200px;
+            background: linear-gradient(45deg, #6a11cb, #4a6cf7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .resource-content, .blog-content {
+            padding: 25px;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #1e2a4a;
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #4a6cf7;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.2);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -412,7 +506,11 @@
             nav ul {
                 flex-direction: column;
                 gap: 10px;
-                text-align: center;
+                display: none;
+            }
+
+            nav.active ul {
+                display: flex;
             }
 
             .hero h2 {
@@ -437,6 +535,10 @@
                 font-size: 2rem;
             }
 
+            .mobile-menu-btn {
+                display: block;
+            }
+
             .email-form {
                 flex-direction: column;
             }
@@ -458,7 +560,7 @@
                 padding: 60px 0;
             }
 
-            .tools-grid, .products-grid {
+            .tools-grid, .products-grid, .resources-grid, .blog-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -471,6 +573,9 @@
                 <i class="fas fa-brain logo-icon"></i>
                 <h1>PA AI Hub</h1>
             </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -490,7 +595,7 @@
             <p>PA AI Hub helps creators, entrepreneurs, and learners discover powerful AI tools and digital systems to earn smarter, not harder.</p>
             <div class="cta-buttons">
                 <a href="#tools" class="btn btn-primary">Explore Tools</a>
-                <a href="#contact" class="btn btn-secondary">Join Our AI Business Hub</a>
+                <button class="btn btn-secondary" id="joinHubBtn">Join Our AI Business Hub</button>
             </div>
         </div>
     </section>
@@ -597,55 +702,4 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="far fa-star"></i>
-                            <span style="color: #6c757d; margin-left: 5px;">4/5</span>
-                        </div>
-                        <p>AI-powered workspace for notes, tasks, and project management. Organize your business and automate workflows.</p>
-                        <a href="https://www.notion.so" target="_blank" class="btn btn-primary">Try Notion AI Now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="section products-section" id="products">
-        <div class="container">
-            <div class="section-title">
-                <h2>Download Premium AI Kits</h2>
-                <p>Get our exclusive AI business kits to accelerate your earning journey.</p>
-            </div>
-            
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-img">
-                        <i class="fas fa-rocket"></i>
-                    </div>
-                    <div class="product-content">
-                        <h3>AI Business Starter Kit</h3>
-                        <p>Complete package with templates, guides, and tools to start your AI-powered business. Includes marketing strategies and automation workflows.</p>
-                        <div class="price">$47</div>
-                        <a href="#" class="btn btn-primary">Buy Now</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-img">
-                        <i class="fas fa-quote-right"></i>
-                    </div>
-                    <div class="product-content">
-                        <h3>AI Caption Creator Pack</h3>
-                        <p>Generate engaging social media captions instantly. Includes 500+ templates, AI prompts, and content calendar for all platforms.</p>
-                        <div class="price">$27</div>
-                        <a href="#" class="btn btn-primary">Buy Now</a>
-                    </div>
-                </div>
-
-                <div class="product-card">
-                    <div class="product-img">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="product-content">
-                        <h3>AI Productivity Mastery</h3>
-                        <p>Maximize your efficiency with AI tools. Includes automation scripts, workflow templates, and time-saving techniques.</p>
-                        <div class="price">$37</div>
-                        <a href="#" class="btn btn-primary">Buy Now</a>
-                    
+                            <span st
