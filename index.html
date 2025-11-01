@@ -515,6 +515,147 @@
             resize: vertical;
         }
 
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chat-button {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .chat-button:hover {
+            background: var(--secondary);
+            transform: scale(1.1);
+        }
+
+        .chat-box {
+            position: absolute;
+            bottom: 70px;
+            right: 0;
+            width: 350px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+
+        .chat-box.active {
+            display: block;
+        }
+
+        .chat-header {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-messages {
+            height: 300px;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+
+        .message.bot {
+            background: #f1f3f5;
+            align-self: flex-start;
+        }
+
+        .message.user {
+            background: var(--primary);
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        .chat-input {
+            padding: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Business Hub Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+
+        .modal h3 {
+            color: var(--dark);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .modal p {
+            color: var(--gray);
+            margin-bottom: 30px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
         /* Footer */
         footer {
             background: var(--dark);
@@ -620,6 +761,11 @@
                 flex-direction: column;
                 gap: 10px;
             }
+
+            .chat-box {
+                width: 300px;
+                right: -20px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -637,6 +783,11 @@
 
             .contact-container {
                 grid-template-columns: 1fr;
+            }
+
+            .chat-box {
+                width: 280px;
+                right: -40px;
             }
         }
     </style>
@@ -671,7 +822,7 @@
             <p>PA AI Hub helps creators, entrepreneurs, and learners discover powerful AI tools and digital systems to earn smarter, not harder.</p>
             <div class="cta-buttons">
                 <a href="#tools" class="btn btn-primary">Explore Tools</a>
-                <a href="#contact" class="btn btn-secondary">Join Our AI Business Hub</a>
+                <button class="btn btn-secondary" id="joinHubBtn">Join Our AI Business Hub</button>
             </div>
         </div>
     </section>
@@ -679,74 +830,4 @@
     <!-- Featured Sections -->
     <section class="section">
         <div class="container">
-            <div class="section-title">
-                <h2>Featured Content</h2>
-                <p>Discover the latest AI tools, business insights, and free resources to boost your productivity and earnings.</p>
-            </div>
-            <div class="featured-grid">
-                <div class="featured-card">
-                    <div class="card-img">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <div class="card-content">
-                        <h3>Top AI Tools of the Week</h3>
-                        <p>Discover the most powerful AI tools that can transform your workflow and boost productivity.</p>
-                        <div class="card-meta">
-                            <span class="date">Updated Weekly</span>
-                            <a href="#tools" class="btn btn-primary">View Tools</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="featured-card">
-                    <div class="card-img">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <div class="card-content">
-                        <h3>Business Motivation Articles</h3>
-                        <p>Get inspired with actionable tips and strategies to grow your digital business and mindset.</p>
-                        <div class="card-meta">
-                            <span class="date">Weekly Articles</span>
-                            <a href="#blog" class="btn btn-primary">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="featured-card">
-                    <div class="card-img">
-                        <i class="fas fa-download"></i>
-                    </div>
-                    <div class="card-content">
-                        <h3>Free Digital Resources</h3>
-                        <p>Access our collection of free templates, guides, and tools to accelerate your success.</p>
-                        <div class="card-meta">
-                            <span class="date">Free Downloads</span>
-                            <a href="#resources" class="btn btn-primary">Get Resources</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- AI Tools Section -->
-    <section class="section tools-section" id="tools">
-        <div class="container">
-            <div class="section-title">
-                <h2>AI Tools Directory</h2>
-                <p>Browse our curated collection of AI tools categorized by use case to find the perfect solution for your needs.</p>
-            </div>
-            <div class="tools-categories">
-                <button class="category-btn active">All Tools</button>
-                <button class="category-btn">Content & Writing</button>
-                <button class="category-btn">Design</button>
-                <button class="category-btn">Video</button>
-                <button class="category-btn">Productivity</button>
-                <button class="category-btn">Marketing</button>
-            </div>
-            <div class="tools-grid">
-                <div class="tool-card">
-                    <div class="tool-logo">
-                        <i class="fas fa-comment-dots"></i>
-                    </div>
-                    <div class="tool-content">
-                        <h3>ChatGPT</h3>
-                        <p>Advanced AI language model for content
+            <div class="section
