@@ -1,825 +1,141 @@
-      <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PA AI Hub - Smart Tools for Smart Earners</title>
-    <meta name="description" content="PA AI Hub helps creators, entrepreneurs, and learners discover powerful AI tools and digital systems to earn smarter, not harder.">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        :root {
-            --primary: #4a6cf7;
-            --secondary: #6a11cb;
-            --accent: #ff6b6b;
-            --dark: #1e2a4a;
-            --light: #f8f9fa;
-            --gray: #6c757d;
-            --transition: all 0.3s ease;
-        }
-
-        body {
-            background-color: var(--light);
-            color: #333;
-            line-height: 1.6;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 15px 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-
-        .logo-icon {
-            font-size: 2rem;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: var(--transition);
-            padding: 5px 0;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 150px 0 100px;
-            text-align: center;
-            margin-top: 70px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            font-weight: 800;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            cursor: pointer;
-            border: none;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background-color: var(--accent);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #ff5252;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
-        }
-
-        .btn-secondary {
-            background-color: transparent;
-            color: white;
-            border: 2px solid white;
-        }
-
-        .btn-secondary:hover {
-            background-color: white;
-            color: var(--dark);
-            transform: translateY(-3px);
-        }
-
-        .section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 15px;
-        }
-
-        .section-title p {
-            color: var(--gray);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .featured-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .featured-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-img {
-            height: 200px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-        }
-
-        .card-content {
-            padding: 25px;
-        }
-
-        .card-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .card-content p {
-            color: var(--gray);
-            margin-bottom: 20px;
-        }
-
-        .card-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-        }
-
-        .tools-section {
-            background-color: #f0f4ff;
-        }
-
-        .tools-categories {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-            margin-bottom: 40px;
-        }
-
-        .category-btn {
-            padding: 10px 20px;
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: 500;
-        }
-
-        .category-btn.active, .category-btn:hover {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        .tools-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .tool-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .tool-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .tool-logo {
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-            background: #f8f9fa;
-        }
-
-        .tool-logo i {
-            font-size: 2.5rem;
-            color: var(--primary);
-        }
-
-        .tool-content {
-            padding: 20px;
-        }
-
-        .tool-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
-
-        .tool-content p {
-            color: var(--gray);
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-
-        .pros-cons {
-            display: flex;
-            margin: 15px 0;
-            font-size: 0.9rem;
-        }
-
-        .pros, .cons {
-            flex: 1;
-        }
-
-        .pros h4, .cons h4 {
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-        }
-
-        .pros ul, .cons ul {
-            list-style: none;
-        }
-
-        .pros li {
-            color: #28a745;
-            margin-bottom: 5px;
-        }
-
-        .cons li {
-            color: #dc3545;
-            margin-bottom: 5px;
-        }
-
-        .pros li::before {
-            content: '✓ ';
-        }
-
-        .cons li::before {
-            content: '✗ ';
-        }
-
-        .tool-btn {
-            width: 100%;
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .resource-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-            text-align: center;
-        }
-
-        .resource-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .resource-img {
-            height: 200px;
-            background: linear-gradient(45deg, var(--secondary), var(--primary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-        }
-
-        .resource-content {
-            padding: 25px;
-        }
-
-        .resource-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .resource-content p {
-            color: var(--gray);
-            margin-bottom: 20px;
-        }
-
-        .contact-section {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-        }
-
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
-        }
-
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-
-        .contact-info p {
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .contact-details {
-            margin-bottom: 30px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .contact-item i {
-            margin-right: 15px;
-            font-size: 1.2rem;
-            width: 20px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background: white;
-            color: var(--primary);
-            transform: translateY(-5px);
-        }
-
-        .contact-form {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-form h3 {
-            color: var(--dark);
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--dark);
-            font-weight: 500;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .form-control:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(74, 108, 247, 0.2);
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .chat-widget {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        .chat-button {
-            width: 60px;
-            height: 60px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: var(--transition);
-        }
-
-        .chat-button:hover {
-            background: var(--secondary);
-            transform: scale(1.1);
-        }
-
-        .chat-box {
-            position: absolute;
-            bottom: 70px;
-            right: 0;
-            width: 350px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            display: none;
-        }
-
-        .chat-box.active {
-            display: block;
-        }
-
-        .chat-header {
-            background: var(--primary);
-            color: white;
-            padding: 15px;
-            border-radius: 10px 10px 0 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .chat-messages {
-            height: 300px;
-            padding: 15px;
-            overflow-y: auto;
-        }
-
-        .message {
-            margin-bottom: 15px;
-            padding: 10px;
-            border-radius: 10px;
-            max-width: 80%;
-        }
-
-        .message.bot {
-            background: #f1f3f5;
-            align-self: flex-start;
-        }
-
-        .message.user {
-            background: var(--primary);
-            color: white;
-            align-self: flex-end;
-            margin-left: auto;
-        }
-
-        .chat-input {
-            padding: 15px;
-            border-top: 1px solid #eee;
-            display: flex;
-            gap: 10px;
-        }
-
-        .chat-input input {
-            flex: 1;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-            position: relative;
-        }
-
-        .modal h3 {
-            color: var(--dark);
-            margin-bottom: 20px;
-            font-size: 1.8rem;
-        }
-
-        .modal p {
-            color: var(--gray);
-            margin-bottom: 30px;
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--gray);
-        }
-
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 60px 0 20px;
-        }
-
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-col h4 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-        }
-
-        .footer-col p {
-            margin-bottom: 20px;
-            opacity: 0.8;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .footer-links a:hover {
-            color: white;
-            padding-left: 5px;
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            opacity: 0.7;
-        }
-
-        .affiliate-disclosure {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 5px;
-            padding: 15px;
-            margin: 20px 0;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
-                display: none;
-            }
-
-            nav.active ul {
-                display: flex;
-            }
-
-            .hero h2 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 250px;
-            }
-
-            .section-title h2 {
-                font-size: 2rem;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .chat-box {
-                width: 300px;
-                right: -20px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .hero {
-                padding: 120px 0 60px;
-            }
-
-            .section {
-                padding: 60px 0;
-            }
-
-            .featured-grid, .tools-grid, .resources-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-
-            .chat-box {
-                width: 280px;
-                right: -40px;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>PA AI Hub – Smart Tools for Smart Earners</title>
+  <meta name="description" content="Discover top AI tools, digital products, and business ideas to earn smarter with PA AI Hub." />
+  <meta name="keywords" content="AI tools, earn money online, ChatGPT, Canva Pro, Notion AI, Copy.ai, PA AI Hub" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-    <header>
-        <div class="container header-container">
-            <div class="logo">
-                <i class="fas fa-brain logo-icon"></i>
-                <h1>PA AI Hub</h1>
-            </div>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#tools">AI Tools</a></li>
-                    <li><a href="#resources">Resources</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <h2>Smart Tools for Smart Earners</h2>
-            <p>PA AI Hub helps creators, entrepreneurs, and learners discover powerful AI tools and digital systems to earn smarter, not harder.</p>
-            <div class="cta-buttons">
-                <a href="#tools" class="btn btn-primary">Explore Tools</a>
-                <button class="btn btn-secondary" id="joinHubBtn">Join Our AI Business Hub</button>
-            </div>
-        </div>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container">
+      <h1>PA AI Hub</h1>
+      <p class="tagline">Smart Tools for Smart Earners 💼</p>
+      <div class="hero-ctas">
+        <a href="#tools" class="btn primary">Explore Tools</a>
+        <a href="#products" class="btn outline">Download Kits</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- AI TOOLS SECTION -->
+    <section id="tools" class="section">
+      <h2>Top AI Tools</h2>
+      <p class="lead">Boost your work, creativity, and business with these trusted AI tools.</p>
+
+      <div class="grid">
+        <article class="card">
+          <h3>ChatGPT</h3>
+          <p>Create blogs, posts, and ideas fast using AI.</p>
+          <a class="btn primary" href="#" target="_blank">Try Now</a>
+        </article>
+
+        <article class="card">
+          <h3>Canva Pro</h3>
+          <p>Design thumbnails, posts, and banners easily.</p>
+          <a class="btn primary" href="#" target="_blank">Try Now</a>
+        </article>
+
+        <article class="card">
+          <h3>Notion AI</h3>
+          <p>Organize and plan your business smartly with Notion AI.</p>
+          <a class="btn primary" href="#" target="_blank">Try Now</a>
+        </article>
+
+        <article class="card">
+          <h3>Copy.ai</h3>
+          <p>Generate ad copy, captions, and emails instantly.</p>
+          <a class="btn primary" href="#" target="_blank">Try Now</a>
+        </article>
+      </div>
     </section>
 
-    <div class="container">
-        <div class="affiliate-disclosure">
-            <p><strong>Disclosure:</strong> Some links are affiliate links. We may earn a commission at no extra cost to you.</p>
+    <!-- DIGITAL PRODUCTS -->
+    <section id="products" class="section">
+      <h2>Download Premium AI Kits</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>AI Business Starter Kit</h3>
+          <p>Launch your AI side business with templates & guides.</p>
+          <a class="btn outline" href="#" target="_blank">Buy Now</a>
         </div>
-    </div>
 
-    <section class="section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Featured Content</h2>
-                <p>Discover the late  
+        <div class="card">
+          <h3>AI Caption Creator Pack</h3>
+          <p>200+ viral captions for Instagram, YouTube & Reels.</p>
+          <a class="btn outline" href="#" target="_blank">Buy Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section id="subscribe" class="section small">
+      <h2>Join Our AI Newsletter</h2>
+      <p>Get free tools, updates, and earning tips.</p>
+      <form id="subscribe-form" onsubmit="return handleSubscribe(event)">
+        <input type="email" id="subscriber-email" placeholder="Enter your email" required />
+        <button class="btn primary" type="submit">Subscribe</button>
+      </form>
+      <p class="small">No spam. Unsubscribe anytime.</p>
+    </section>
+
+    <!-- BLOGS -->
+    <section id="blog" class="section">
+      <h2>Latest Articles</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>How to Earn Using AI Tools</h3>
+          <p>Learn how to use AI to start earning online.</p>
+          <a class="btn outline" href="#" target="_blank">Read</a>
+        </article>
+
+        <article class="card">
+          <h3>Best Free AI Tools for Beginners</h3>
+          <p>Start with simple, free tools that really work.</p>
+          <a class="btn outline" href="#" target="_blank">Read</a>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>PA AI Hub</strong>
+        <p class="small">Smart Tools for Smart Earners</p>
+      </div>
+      <div>
+        <p><a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms & Conditions</a></p>
+        <p>📧 <a href="mailto:paaihub4@gmail.com">paaihub4@gmail.com</a></p>
+      </div>
+    </div>
+    <div class="copy">© 2025 PA AI Hub | All Rights Reserved</div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a class="whatsapp-float" href="https://wa.me/919380947115?text=Hi+I+want+to+join+PA+AI+Hub" target="_blank">
+    💬 Join on WhatsApp
+  </a>
+
+  <!-- POPUP -->
+  <div id="leadPopup" class="modal" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closePopup()">×</button>
+      <h3>🎁 Free AI Business Sheet</h3>
+      <p>Download a free one-page AI business guide now.</p>
+      <a href="#" class="btn primary" onclick="popupDownload()">Get Free Download</a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
