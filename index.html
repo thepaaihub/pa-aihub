@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PA AI Hub - Smart Tools for Smart Earners | AI Tools for Business</title>
-    <meta name="description" content="Discover powerful AI tools to earn money online. Get AI Business Kits, join our community, and learn how to make money with AI. Start earning smarter with PA AI Hub.">
-    <meta name="keywords" content="AI tools for business, earn money online using AI, PA AI Hub, digital AI kits, ChatGPT, Canva Pro, Jasper AI, AI business tools, make money with AI">
+    <title>PA AI Hub - Smart Tools for Smart Earners</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -15,18 +13,8 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        :root {
-            --primary: #4a6cf7;
-            --secondary: #6a11cb;
-            --accent: #ff6b6b;
-            --dark: #1e2a4a;
-            --light: #f8f9fa;
-            --gray: #6c757d;
-            --transition: all 0.3s ease;
-        }
-
         body {
-            background-color: var(--light);
+            background-color: #f8f9fa;
             color: #333;
             line-height: 1.6;
         }
@@ -39,7 +27,7 @@
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, #4a6cf7, #6a11cb);
             color: white;
             padding: 15px 0;
             position: fixed;
@@ -81,34 +69,20 @@
             color: white;
             text-decoration: none;
             font-weight: 500;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             padding: 5px 0;
         }
 
         nav a:hover {
-            color: var(--accent);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
+            color: #ff6b6b;
         }
 
         .hero {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, #4a6cf7, #6a11cb);
             color: white;
             padding: 150px 0 100px;
             text-align: center;
             margin-top: 70px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
         }
 
         .hero h2 {
@@ -136,14 +110,14 @@
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
-            transition: var(--transition);
+            transition: all 0.3s ease;
             cursor: pointer;
             border: none;
             font-size: 1rem;
         }
 
         .btn-primary {
-            background-color: var(--accent);
+            background-color: #ff6b6b;
             color: white;
         }
 
@@ -161,7 +135,7 @@
 
         .btn-secondary:hover {
             background-color: white;
-            color: var(--dark);
+            color: #1e2a4a;
             transform: translateY(-3px);
         }
 
@@ -176,94 +150,41 @@
 
         .section-title h2 {
             font-size: 2.5rem;
-            color: var(--dark);
+            color: #1e2a4a;
             margin-bottom: 15px;
         }
 
         .section-title p {
-            color: var(--gray);
+            color: #6c757d;
             max-width: 600px;
             margin: 0 auto;
         }
 
-        .featured-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .featured-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .featured-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .card-img {
-            height: 200px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3rem;
-        }
-
-        .card-content {
-            padding: 25px;
-        }
-
-        .card-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .card-content p {
-            color: var(--gray);
-            margin-bottom: 20px;
-        }
-
-        .card-meta {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-        }
-
-        .tools-affiliate-section {
+        .tools-section {
             background: white;
         }
 
-        .tools-grid-affiliate {
+        .tools-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 30px;
         }
 
-        .tool-card-affiliate {
+        .tool-card {
             background: white;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
+            transition: all 0.3s ease;
             border: 1px solid #eee;
         }
 
-        .tool-card-affiliate:hover {
+        .tool-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
 
-        .tool-logo-affiliate {
+        .tool-logo {
             height: 120px;
             display: flex;
             align-items: center;
@@ -272,23 +193,23 @@
             background: #f8f9fa;
         }
 
-        .tool-logo-affiliate i {
+        .tool-logo i {
             font-size: 3rem;
-            color: var(--primary);
+            color: #4a6cf7;
         }
 
-        .tool-content-affiliate {
+        .tool-content {
             padding: 20px;
         }
 
-        .tool-content-affiliate h3 {
+        .tool-content h3 {
             font-size: 1.3rem;
             margin-bottom: 10px;
-            color: var(--dark);
+            color: #1e2a4a;
         }
 
-        .tool-content-affiliate p {
-            color: var(--gray);
+        .tool-content p {
+            color: #6c757d;
             font-size: 0.95rem;
             margin-bottom: 15px;
             min-height: 60px;
@@ -297,12 +218,6 @@
         .rating {
             color: #ffc107;
             margin-bottom: 10px;
-        }
-
-        .tool-btn-affiliate {
-            width: 100%;
-            text-align: center;
-            margin-top: 15px;
         }
 
         .products-section {
@@ -320,7 +235,7 @@
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
+            transition: all 0.3s ease;
             text-align: center;
         }
 
@@ -331,7 +246,7 @@
 
         .product-img {
             height: 200px;
-            background: linear-gradient(45deg, var(--secondary), var(--primary));
+            background: linear-gradient(45deg, #6a11cb, #4a6cf7);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -346,23 +261,23 @@
         .product-content h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
-            color: var(--dark);
+            color: #1e2a4a;
         }
 
         .product-content p {
-            color: var(--gray);
+            color: #6c757d;
             margin-bottom: 20px;
         }
 
         .price {
             font-size: 1.5rem;
             font-weight: bold;
-            color: var(--primary);
+            color: #4a6cf7;
             margin-bottom: 15px;
         }
 
         .email-section {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, #4a6cf7, #6a11cb);
             color: white;
             text-align: center;
         }
@@ -382,87 +297,13 @@
             font-size: 1rem;
         }
 
-        .popup-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 3000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .popup-content {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-            position: relative;
-            animation: popupAppear 0.5s ease;
-        }
-
-        @keyframes popupAppear {
-            from { transform: scale(0.8); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .popup-content h3 {
-            color: var(--dark);
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-        }
-
-        .popup-content p {
-            color: var(--gray);
-            margin-bottom: 25px;
-        }
-
-        .close-popup {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--gray);
-        }
-
-        .whatsapp-float {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: #25D366;
-            color: white;
-            border-radius: 50px;
-            padding: 15px 20px;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
-            z-index: 1000;
-            transition: var(--transition);
-        }
-
-        .whatsapp-float:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
-            background: #20b858;
-        }
-
         footer {
-            background: var(--dark);
+            background: #1e2a4a;
             color: white;
             padding: 60px 0 20px;
         }
 
-        .footer-container {
+        .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
@@ -479,23 +320,46 @@
             opacity: 0.8;
         }
 
-        .footer-links {
+        .footer-col ul {
             list-style: none;
         }
 
-        .footer-links li {
+        .footer-col li {
             margin-bottom: 10px;
         }
 
-        .footer-links a {
+        .footer-col a {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
-            transition: var(--transition);
+            transition: all 0.3s ease;
         }
 
-        .footer-links a:hover {
+        .footer-col a:hover {
             color: white;
             padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: white;
+            color: #4a6cf7;
+            transform: translateY(-5px);
         }
 
         .copyright {
@@ -516,6 +380,29 @@
             font-size: 0.9rem;
         }
 
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25D366;
+            color: white;
+            border-radius: 50px;
+            padding: 15px 20px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+            background: #20b858;
+        }
+
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -525,11 +412,7 @@
             nav ul {
                 flex-direction: column;
                 gap: 10px;
-                display: none;
-            }
-
-            nav.active ul {
-                display: flex;
+                text-align: center;
             }
 
             .hero h2 {
@@ -554,10 +437,6 @@
                 font-size: 2rem;
             }
 
-            .mobile-menu-btn {
-                display: block;
-            }
-
             .email-form {
                 flex-direction: column;
             }
@@ -579,7 +458,7 @@
                 padding: 60px 0;
             }
 
-            .featured-grid, .tools-grid-affiliate, .products-grid {
+            .tools-grid, .products-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -592,9 +471,6 @@
                 <i class="fas fa-brain logo-icon"></i>
                 <h1>PA AI Hub</h1>
             </div>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
             <nav>
                 <ul>
                     <li><a href="#home">Home</a></li>
@@ -609,12 +485,12 @@
     </header>
 
     <section class="hero" id="home">
-        <div class="container hero-content">
+        <div class="container">
             <h2>Smart Tools for Smart Earners</h2>
             <p>PA AI Hub helps creators, entrepreneurs, and learners discover powerful AI tools and digital systems to earn smarter, not harder.</p>
             <div class="cta-buttons">
                 <a href="#tools" class="btn btn-primary">Explore Tools</a>
-                <button class="btn btn-secondary" id="joinHubBtn">Join Our AI Business Hub</button>
+                <a href="#contact" class="btn btn-secondary">Join Our AI Business Hub</a>
             </div>
         </div>
     </section>
@@ -625,18 +501,19 @@
         </div>
     </div>
 
-    <section class="section tools-affiliate-section" id="tools">
+    <section class="section tools-section" id="tools">
         <div class="container">
             <div class="section-title">
                 <h2>Top AI Tools for Business</h2>
                 <p>Discover the most powerful AI tools that can help you earn money online and grow your business.</p>
             </div>
-            <div class="tools-grid-affiliate">
-                <div class="tool-card-affiliate">
-                    <div class="tool-logo-affiliate">
+            
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-logo">
                         <i class="fas fa-comment-dots"></i>
                     </div>
-                    <div class="tool-content-affiliate">
+                    <div class="tool-content">
                         <h3>ChatGPT Plus</h3>
                         <div class="rating">
                             <i class="fas fa-star"></i>
@@ -644,19 +521,18 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star-half-alt"></i>
-                            <span style="color: var(--gray); margin-left: 5px;">4.5/5</span>
+                            <span style="color: #6c757d; margin-left: 5px;">4.5/5</span>
                         </div>
                         <p>Advanced AI assistant for content creation, coding, research, and business automation. Perfect for entrepreneurs and creators.</p>
-                        <div class="tool-btn-affiliate">
-                            <a href="https://chat.openai.com" target="_blank" class="btn btn-primary">Try ChatGPT Now</a>
-                        </div>
+                        <a href="https://chat.openai.com" target="_blank" class="btn btn-primary">Try ChatGPT Now</a>
                     </div>
                 </div>
-                <div class="tool-card-affiliate">
-                    <div class="tool-logo-affiliate">
+
+                <div class="tool-card">
+                    <div class="tool-logo">
                         <i class="fas fa-palette"></i>
                     </div>
-                    <div class="tool-content-affiliate">
+                    <div class="tool-content">
                         <h3>Canva Pro</h3>
                         <div class="rating">
                             <i class="fas fa-star"></i>
@@ -664,19 +540,18 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
-                            <span style="color: var(--gray); margin-left: 5px;">5/5</span>
+                            <span style="color: #6c757d; margin-left: 5px;">5/5</span>
                         </div>
                         <p>Design platform with AI features for creating stunning visuals, presentations, and marketing materials. Essential for content creators.</p>
-                        <div class="tool-btn-affiliate">
-                            <a href="https://www.canva.com" target="_blank" class="btn btn-primary">Try Canva Pro Now</a>
-                        </div>
+                        <a href="https://www.canva.com" target="_blank" class="btn btn-primary">Try Canva Pro Now</a>
                     </div>
                 </div>
-                <div class="tool-card-affiliate">
-                    <div class="tool-logo-affiliate">
+
+                <div class="tool-card">
+                    <div class="tool-logo">
                         <i class="fas fa-feather-alt"></i>
                     </div>
-                    <div class="tool-content-affiliate">
+                    <div class="tool-content">
                         <h3>Jasper AI</h3>
                         <div class="rating">
                             <i class="fas fa-star"></i>
@@ -684,14 +559,93 @@
                             <i class="fas fa-star"></i>
                             <i class="fas fa-star"></i>
                             <i class="far fa-star"></i>
-                            <span style="color: var(--gray); margin-left: 5px;">4/5</span>
+                            <span style="color: #6c757d; margin-left: 5px;">4/5</span>
                         </div>
                         <p>AI writing assistant for creating marketing copy, blog posts, and social media content. Boost your content creation speed.</p>
-                        <div class="tool-btn-affiliate">
-                            <a href="https://www.jasper.ai" target="_blank" class="btn btn-primary">Try Jasper AI Now</a>
-                        </div>
+                        <a href="https://www.jasper.ai" target="_blank" class="btn btn-primary">Try Jasper AI Now</a>
                     </div>
                 </div>
-                <div class="tool-card-affiliate">
-                    <div class="tool-logo-affiliate">
-                        <i class="fas fa-copy"></i
+
+                <div class="tool-card">
+                    <div class="tool-logo">
+                        <i class="fas fa-copy"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Copy.ai</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span style="color: #6c757d; margin-left: 5px;">4.5/5</span>
+                        </div>
+                        <p>Generate high-quality marketing copy, product descriptions, and social media posts in seconds. Perfect for e-commerce businesses.</p>
+                        <a href="https://www.copy.ai" target="_blank" class="btn btn-primary">Try Copy.ai Now</a>
+                    </div>
+                </div>
+
+                <div class="tool-card">
+                    <div class="tool-logo">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>Notion AI</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span style="color: #6c757d; margin-left: 5px;">4/5</span>
+                        </div>
+                        <p>AI-powered workspace for notes, tasks, and project management. Organize your business and automate workflows.</p>
+                        <a href="https://www.notion.so" target="_blank" class="btn btn-primary">Try Notion AI Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section products-section" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2>Download Premium AI Kits</h2>
+                <p>Get our exclusive AI business kits to accelerate your earning journey.</p>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>AI Business Starter Kit</h3>
+                        <p>Complete package with templates, guides, and tools to start your AI-powered business. Includes marketing strategies and automation workflows.</p>
+                        <div class="price">$47</div>
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>AI Caption Creator Pack</h3>
+                        <p>Generate engaging social media captions instantly. Includes 500+ templates, AI prompts, and content calendar for all platforms.</p>
+                        <div class="price">$27</div>
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="product-content">
+                        <h3>AI Productivity Mastery</h3>
+                        <p>Maximize your efficiency with AI tools. Includes automation scripts, workflow templates, and time-saving techniques.</p>
+                        <div class="price">$37</div>
+                        <a href="#" class="btn btn-primary">Buy Now</a>
+                    
