@@ -7,7 +7,6 @@
     <meta name="description" content="PA AI Hub helps creators, entrepreneurs, and learners discover powerful AI tools and digital systems to earn smarter, not harder.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -29,6 +28,7 @@
             background-color: var(--light);
             color: #333;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         .container {
@@ -38,13 +38,15 @@
             padding: 0 20px;
         }
 
-        /* Header Styles */
+        /* Header */
         header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             padding: 15px 0;
-            position: sticky;
+            position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
@@ -82,26 +84,10 @@
             font-weight: 500;
             transition: var(--transition);
             padding: 5px 0;
-            position: relative;
         }
 
         nav a:hover {
             color: var(--accent);
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: var(--transition);
-        }
-
-        nav a:hover::after {
-            width: 100%;
         }
 
         .mobile-menu-btn {
@@ -113,14 +99,13 @@
             cursor: pointer;
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
-            background: linear-gradient(rgba(30, 42, 74, 0.8), rgba(30, 42, 74, 0.9)), url('https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 100px 0;
+            padding: 150px 0 100px;
             text-align: center;
+            margin-top: 70px;
         }
 
         .hero-content {
@@ -182,7 +167,7 @@
             transform: translateY(-3px);
         }
 
-        /* Featured Sections */
+        /* Sections */
         .section {
             padding: 80px 0;
         }
@@ -196,20 +181,6 @@
             font-size: 2.5rem;
             color: var(--dark);
             margin-bottom: 15px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            border-radius: 2px;
         }
 
         .section-title p {
@@ -218,6 +189,7 @@
             margin: 0 auto;
         }
 
+        /* Cards */
         .featured-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -239,8 +211,12 @@
 
         .card-img {
             height: 200px;
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
         }
 
         .card-content {
@@ -267,17 +243,7 @@
             border-top: 1px solid #eee;
         }
 
-        .card-meta .date {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        .card-meta .btn {
-            padding: 8px 20px;
-            font-size: 0.9rem;
-        }
-
-        /* Tools Section */
+        /* Tools */
         .tools-section {
             background-color: #f0f4ff;
         }
@@ -385,11 +351,11 @@
         }
 
         .pros li::before {
-            content: '+ ';
+            content: '✓ ';
         }
 
         .cons li::before {
-            content: '- ';
+            content: '✗ ';
         }
 
         .tool-btn {
@@ -398,7 +364,7 @@
             margin-top: 15px;
         }
 
-        /* Resources Section */
+        /* Resources */
         .resources-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -411,6 +377,7 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: var(--transition);
+            text-align: center;
         }
 
         .resource-card:hover {
@@ -420,13 +387,16 @@
 
         .resource-img {
             height: 200px;
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
         }
 
         .resource-content {
             padding: 25px;
-            text-align: center;
         }
 
         .resource-content h3 {
@@ -440,7 +410,7 @@
             margin-bottom: 20px;
         }
 
-        /* Contact Section */
+        /* Contact */
         .contact-section {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
@@ -562,18 +532,6 @@
         .footer-col h4 {
             font-size: 1.3rem;
             margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-col h4::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 2px;
-            background: var(--accent);
         }
 
         .footer-col p {
@@ -608,13 +566,7 @@
             opacity: 0.7;
         }
 
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .hero h2 {
-                font-size: 2.5rem;
-            }
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -672,7 +624,7 @@
 
         @media (max-width: 576px) {
             .hero {
-                padding: 60px 0;
+                padding: 120px 0 60px;
             }
 
             .section {
@@ -733,7 +685,9 @@
             </div>
             <div class="featured-grid">
                 <div class="featured-card">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="card-img">
+                        <i class="fas fa-robot"></i>
+                    </div>
                     <div class="card-content">
                         <h3>Top AI Tools of the Week</h3>
                         <p>Discover the most powerful AI tools that can transform your workflow and boost productivity.</p>
@@ -744,7 +698,9 @@
                     </div>
                 </div>
                 <div class="featured-card">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="card-img">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
                     <div class="card-content">
                         <h3>Business Motivation Articles</h3>
                         <p>Get inspired with actionable tips and strategies to grow your digital business and mindset.</p>
@@ -755,9 +711,42 @@
                     </div>
                 </div>
                 <div class="featured-card">
-                    <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="card-img">
+                        <i class="fas fa-download"></i>
+                    </div>
                     <div class="card-content">
                         <h3>Free Digital Resources</h3>
                         <p>Access our collection of free templates, guides, and tools to accelerate your success.</p>
                         <div class="card-meta">
-                                 
+                            <span class="date">Free Downloads</span>
+                            <a href="#resources" class="btn btn-primary">Get Resources</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Tools Section -->
+    <section class="section tools-section" id="tools">
+        <div class="container">
+            <div class="section-title">
+                <h2>AI Tools Directory</h2>
+                <p>Browse our curated collection of AI tools categorized by use case to find the perfect solution for your needs.</p>
+            </div>
+            <div class="tools-categories">
+                <button class="category-btn active">All Tools</button>
+                <button class="category-btn">Content & Writing</button>
+                <button class="category-btn">Design</button>
+                <button class="category-btn">Video</button>
+                <button class="category-btn">Productivity</button>
+                <button class="category-btn">Marketing</button>
+            </div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-logo">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <div class="tool-content">
+                        <h3>ChatGPT</h3>
+                        <p>Advanced AI language model for content
