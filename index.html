@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+      <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -28,7 +28,6 @@
             background-color: var(--light);
             color: #333;
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         .container {
@@ -38,7 +37,6 @@
             padding: 0 20px;
         }
 
-        /* Header */
         header {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
@@ -99,7 +97,6 @@
             cursor: pointer;
         }
 
-        /* Hero */
         .hero {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
@@ -167,7 +164,6 @@
             transform: translateY(-3px);
         }
 
-        /* Sections */
         .section {
             padding: 80px 0;
         }
@@ -189,7 +185,6 @@
             margin: 0 auto;
         }
 
-        /* Cards */
         .featured-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -243,7 +238,6 @@
             border-top: 1px solid #eee;
         }
 
-        /* Tools */
         .tools-section {
             background-color: #f0f4ff;
         }
@@ -364,7 +358,6 @@
             margin-top: 15px;
         }
 
-        /* Resources */
         .resources-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -410,7 +403,6 @@
             margin-bottom: 20px;
         }
 
-        /* Contact */
         .contact-section {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
@@ -515,7 +507,6 @@
             resize: vertical;
         }
 
-        /* Chat Widget */
         .chat-widget {
             position: fixed;
             bottom: 20px;
@@ -607,7 +598,6 @@
             border-radius: 5px;
         }
 
-        /* Business Hub Modal */
         .modal {
             display: none;
             position: fixed;
@@ -657,7 +647,6 @@
             color: var(--gray);
         }
 
-        /* Footer */
         footer {
             background: var(--dark);
             color: white;
@@ -708,38 +697,6 @@
             opacity: 0.7;
         }
 
-        /* Social Proof Section */
-        .social-proof {
-            background: white;
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .testimonials {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .testimonial {
-            background: #f8f9fa;
-            padding: 30px;
-            border-radius: 10px;
-            text-align: left;
-        }
-
-        .testimonial p {
-            font-style: italic;
-            margin-bottom: 15px;
-        }
-
-        .testimonial-author {
-            font-weight: bold;
-            color: var(--primary);
-        }
-
-        /* Affiliate Disclosure */
         .affiliate-disclosure {
             background: #fff3cd;
             border: 1px solid #ffeaa7;
@@ -750,7 +707,6 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .header-container {
                 flex-direction: column;
@@ -824,7 +780,6 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo">
@@ -840,4 +795,31 @@
                     <li><a href="#tools">AI Tools</a></li>
                     <li><a href="#resources">Resources</a></li>
                     <li><a href="#blog">Blog</a></li>
-                    <li><a h
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h2>Smart Tools for Smart Earners</h2>
+            <p>PA AI Hub helps creators, entrepreneurs, and learners discover powerful AI tools and digital systems to earn smarter, not harder.</p>
+            <div class="cta-buttons">
+                <a href="#tools" class="btn btn-primary">Explore Tools</a>
+                <button class="btn btn-secondary" id="joinHubBtn">Join Our AI Business Hub</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="affiliate-disclosure">
+            <p><strong>Disclosure:</strong> Some links are affiliate links. We may earn a commission at no extra cost to you.</p>
+        </div>
+    </div>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Content</h2>
+                <p>Discover the late  
