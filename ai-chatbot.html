@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My AI Assistant 🤖</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .chat-container {
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #f8f9fa;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            padding: 12px 18px;
+            border-radius: 18px;
+            max-width: 80%;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .user-message {
+            background: #007bff;
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 5px;
+        }
+
+        .ai-message {
+            background: white;
+            border: 1px solid #e0e0e0;
+            margin-right: auto;
+            border-bottom-left-radius: 5px;
+        }
+
+        .input-area {
+            display: flex;
+            padding: 20px;
+            background: white;
+            border-top: 1px solid #eee;
+        }
+
+        #user-input {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 25px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        #user-input:focus {
+            border-color: #007bff;
+        }
+
+        #send-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            margin-left: 10px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        #send-btn:hover {
+            background: #0056b3;
+        }
+
+        .typing {
+            color: #666;
+            font-style: italic;
+            padding: 10px 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .info-box {
+            background: #e7f3ff;
+            border-left: 4px solid #007bff;
+            padding: 15px;
+            margin: 15px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🤖 My AI Assistant</h1>
+            <p>Ask me anything! No setup required</p>
+        </header>
+
+        <div class="info-box">
+            <strong>✨ This works completely in your browser!</strong><br>
+            No installation or setup needed. Just save this file and open it.
+        </div>
+
+        <div class="chat-container">
+            <div id="chat-messages" class="chat-messages">
+                <!-- Messages will appear here -->
+            </div>
+            
+            <div class="input-area">
+                <input type="text" id="user-input" placeholder="Type your message here..." />
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class AIChatbot {
+            constructor() {
+                this.chatMessages = document.getElementById('chat-messages');
+                this.userInput = document.getElementById('user-input');
+                this.sendBtn = document.getElementById('send-btn');
+                
+                // Smart responses database
+                this.responses = {
+                    greetings: [
+                        "Hello! 👋 How can I assist you today?",
+                        "Hi there! 😊 What would you like to know?",
+                        "Greetings! I'm here to help. What's on your mind?"
+                    ],
+                    questions: {
+                        "how are you": "I'm just a program, but I'm functioning perfectly! How can I help you?",
+                        "what is your name": "I'm your friendly AI assistant! You can call me ChatBot.",
+                        "what can you do": "I can chat with you, answer questions, help with ideas, and more! Try asking me anything.",
+                        "who created you": "I was created by an AI developer to help people like you!",
+                        "help": "I can help you with: answering questions, brainstorming ideas, explaining concepts, and having friendly conversations!"
+                    },
+                    general: [
+                        "That's interesting! Tell me more about that.",
+                        "I understand. What would you like to know about this?",
+                        "Great question! Let me think about that...",
+                        "Thanks for sharing that with me!",
+                        "I'd be happy to help with that. Could you provide more details?"
+                    ],
+                    tech: {
+                        "html": "HTML is the standard markup language for creating web pages. It stands for HyperText Markup Language.",
+                        "css": "CSS is used to style HTML elements. It stands for Cascading Style Sheets.",
+                        "javascript": "JavaScript makes websites interactive. It's a programming language that runs in browsers.",
+                        "python": "Python is a popular programming language great for beginners and AI development.",
+                        "github": "GitHub is a platform for developers to store and share their code projects.",
+                        "chatgpt": "ChatGPT is an AI language model created by OpenAI that can understand and generate human-like text.",
+                        "gemini": "Gemini is Google's advanced AI model that can understand and process multiple types of information.",
+                        "canva": "Canva is a graphic design platform used to create social media graphics, presentations, and other visual content."
+                    },
+                    learning: {
+                        "learn": "To learn web development, start with HTML, then CSS, then JavaScript. Practice by building small projects!",
+                        "beginner": "Great! For beginners, I recommend starting with HTML and CSS. They're the foundation of all websites.",
+                        "tutorial": "Check out free resources like FreeCodeCamp, MDN Web Docs, or YouTube coding channels for tutorials.",
+                        "project": "Good first projects: Personal portfolio, To-do list app, Simple calculator, or a Blog layout."
+                    }
+                };
+                
+                this.setupEventListeners();
+                this.showWelcomeMessage();
+            }
+
+            setupEventListeners() {
+                this.sendBtn.addEventListener('click', () => this.sendMessage());
+                this.userInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        this.sendMessage();
+                    }
+                });
+            }
+
+            showWelcomeMessage() {
+                const welcomeMessages = [
+                    "Welcome! I'm your AI assistant. I can help you with:",
+                    "• Answering questions 🤔",
+                    "• Programming help 💻", 
+                    "• Learning resources 📚",
+                    "• Creative ideas 💡",
+                    "Just type your message below to get started!"
+                ];
+                
+                welcomeMessages.forEach((msg, index) => {
+                    setTimeout(() => {
+                        this.addMessage('ai', msg);
+                    }, index * 300);
+                });
+            }
+
+            sendMessage() {
+                const message = this.userInput.value.trim();
+                if (!message) return;
+
+                // Add user message to chat
+                this.addMessage('user', message);
+                this.userInput.value = '';
+
+                // Show typing indicator
+                this.showTyping();
+
+                // Simulate AI thinking
+                setTimeout(() => {
+                    this.hideTyping();
+                    const response = this.generateAIResponse(message);
+                    this.addMessage('ai', response);
+                }, 1000 + Math.random() * 1000); // Random delay for realism
+            }
+
+            generateAIResponse(userMessage) {
+                const lowerMessage = userMessage.toLowerCase();
+                
+                // Check for greetings
+                if (this.isGreeting(lowerMessage)) {
+                    return this.getRandomResponse(this.responses.greetings);
+                }
+                
+                // Check for specific questions
+                for (const [key, response] of Object.entries(this.responses.questions)) {
+                    if (lowerMessage.includes(key)) {
+                        return response;
+                    }
+                }
+                
+                // Check for tech terms
+                for (const [term, explanation] of Object.entries(this.responses.tech)) {
+                    if (lowerMessage.includes(term)) {
+                        return explanation;
+                    }
+                }
+                
+                // Check for learning questions
+                for (const [term, response] of Object.entries(this.responses.learning)) {
+                    if (lowerMessage.includes(term)) {
+                        return response;
+                    }
+                }
+                
+                // Check for programming help
+                if (this.isProgrammingQuestion(lowerMessage)) {
+                    return this.getProgrammingResponse(lowerMessage);
+                }
+                
+                // Check for website building questions
+                if (this.isWebsiteQuestion(lowerMessage)) {
+                    return this.getWebsiteResponse(lowerMessage);
+                }
+                
+                // Default response
+                return this.getRandomResponse(this.responses.general);
+            }
+
+            isGreeting(message) {
+                const greetings = ['hello', 'hi', 'hey', 'greetings', 'good morning', 'good afternoon'];
+                return greetings.some(greet => message.includes(greet));
+            }
+
+            isProgrammingQuestion(message) {
+                const programmingKeywords = ['code', 'program', 'function', 'variable', 'loop', 'bug', 'error', 'develop', 'script'];
+                return programmingKeywords.some(keyword => message.includes(keyword));
+            }
+
+            isWebsiteQuestion(message) {
+                const websiteKeywords = ['website', 'webpage', 'web design', 'build a site', 'create website'];
+                return websiteKeywords.some(keyword => message.includes(keyword));
+            }
+
+            getProgrammingResponse(question) {
+                const programmingTips = [
+                    "For coding questions, I recommend breaking the problem into smaller steps.",
+                    "Have you tried checking the documentation for that programming language?",
+                    "Debugging tip: Use console.log() to check your variable values.",
+                    "Remember to test your code frequently as you build it!",
+                    "Stack Overflow is a great resource for programming questions.",
+                    "Practice coding daily to improve your skills consistently."
+                ];
+                return this.getRandomResponse(programmingTips);
+            }
+
+            getWebsiteResponse(question) {
+                const websiteTips = [
+                    "To build a website, start with HTML for structure, then CSS for styling, then JavaScript for interactivity.",
+                    "You can create a simple website with just HTML and CSS - no backend needed!",
+                    "For a quick start, try using templates or website builders like WordPress or Wix.",
+                    "Responsive design is important - make sure your website looks good on both mobile and desktop.",
+                    "Consider using frameworks like Bootstrap to speed up your website development."
+                ];
+                return this.getRandomResponse(websiteTips);
+            }
+
+            getRandomResponse(responseArray) {
+                return responseArray[Math.floor(Math.random() * responseArray.length)];
+            }
+
+            addMessage(sender, text) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${sender}-message`;
+                messageDiv.textContent = text;
+                
+                this.chatMessages.appendChild(messageDiv);
+                this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+            }
+
+            showTyping() {
+                const typingDiv = document.createElement('div');
+                typingDiv.id = 'typing-indicator';
+                typingDiv.className = 'message ai-message typing';
+                typingDiv.textContent = 'AI is thinking...';
+                
+                this.chatMessages.appendChild(typingDiv);
+                this.chatMessages.scrollTop = this.chatMessages.scrollHeight;
+            }
+
+            hideTyping() {
+                const typingIndicator = document.getElementById('typing-indicator');
+                if (typingIndicator) {
+                    typingIndicator.remove();
+                }
+            }
+        }
+
+        // Initialize chatbot when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new AIChatbot();
+        });
+    </script>
+</body>
+</html>
